@@ -1,15 +1,19 @@
-.App {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
- gap: 15px;
-}
-.App button{
-  width: 30px;
-  height: 30px;
-  background-color:blueviolet;
-  color: white;
-  font-size: 25px;
-  
+.App{
+    text-align: center;
 }
 
+ul {
+list-style-type: none;
+}
+li{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 10px;
+}
+
+input:checked + span{
+    text-decoration: line-through;
+}

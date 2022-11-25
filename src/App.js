@@ -1,36 +1,31 @@
 
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
 
-
-
+import { useDispatch } from "react-redux";
+import "./App.css";
+import TodoField from "./components/TodoField";
+import TodoItem from "./components/TodoItem";
+import { addTodo, removeHandle } from "./store/todoSlice";
 
 function App() {
-  const [counter, setCounter] = useState(0)
+  const dispatch = useDispatch();
 
-  const increase = () =>{
-  setCounter(counter +1)
-  }
-  const decrease = () =>{
-    if (counter > 0) {
-      setCounter(counter -1)
-    }
+  const [text, setText] = useState("");
+
+const addTask = () => dispatch(addTodo(text), setText(""))
+
   
-  }
-
-
 
 
   return (
-    <div className='App'>
-    <button onClick={increase}>+</button>
-    <h1>{counter}</h1>
-    <button onClick={decrease}>-</button>
-      
+    <div className="App">
+      <TodoField
+        text={text}
+        handleInput={setText}
+        handleSubmit={addTask}
+      />
+      <TodoItem  />
     </div>
-    
-      
-   
   );
 }
 
